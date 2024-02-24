@@ -2,6 +2,11 @@ import matplotlib.pyplot as plt
 import torch
 from tqdm import tqdm
 
+def get_device():
+    cuda = torch.cuda.is_available()
+    print("CUDA Available?", cuda)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    return device
 # Data to plot accuracy and loss graphs
 train_losses = []
 test_losses = []
